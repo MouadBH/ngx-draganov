@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ngx-draganov": {
+      "projectType": "library",
+      "root": "projects/ngx-draganov",
+      "sourceRoot": "projects/ngx-draganov/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-draganov/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-draganov/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-draganov/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-draganov/src/test.ts",
+            "tsConfig": "projects/ngx-draganov/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-draganov/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-draganov"
 }
